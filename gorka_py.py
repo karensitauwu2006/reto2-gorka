@@ -138,3 +138,44 @@ def fn_edit_cv(data_dict):
     return data_dict
 
 
+def fn_format_cv(cv_dict):
+    print("\n" + "=" * 40)
+    print("             CURRICULUM VITAE")
+    print("=" * 40)
+
+
+    print(f"\nID: {cv_dict['id']}")
+
+
+    print("\nPERSONAL INFORMATION")
+    print("-" * 40)
+    print(f"Name: {cv_dict['name']} {cv_dict['last_names']}")
+    print(f"Birth date: {cv_dict['birth_date']}")
+    print(f"Phone: {cv_dict['phone_number']}")
+    print(f"Email: {cv_dict['email']}")
+
+
+    print("\nPROFESSIONAL INFORMATION")
+    print("-" * 40)
+    print(f"Career: {cv_dict['career']}")
+    print(f"Experience: {cv_dict['experience']} years")
+
+
+    print("\nTECHNOLOGIES")
+    print("-" * 40)
+    for technology_str in cv_dict["tecnologies"]:
+        print(f"- {technology_str.strip()}")
+
+
+    print("\nLANGUAGES")
+    print("-" * 40)
+    for language_str in cv_dict["languages"]:
+        print(f"- {language_str.strip()}")
+
+
+    print("\nADDITIONAL INFORMATION")
+    print("-" * 40)
+    print(cv_dict["additional_information"])
+
+
+    print("\n" + "=" * 40)
