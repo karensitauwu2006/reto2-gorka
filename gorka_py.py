@@ -201,3 +201,72 @@ def fn_search_cv(data_list):
     print("CV not found")
     return None
 
+def main():
+    print("welcome to your CV/json creator")
+
+
+    while True:
+        print("\nchoose an option")
+        print("create a new CV - 1")
+        print("edit existing CV - 2")
+        print("view your own CV - 3")
+        print("visualize all CVs - 4")
+        print("exit - 0")
+
+
+        user_input_int = int(input("type your input: "))
+
+
+        if user_input_int == 0:
+            break
+
+
+        elif user_input_int == 1:
+            created_data_dict = fn_create_cv()
+            read_data_list = fn_read_json(users_cvs_route_str)
+            read_data_list.append(created_data_dict)
+            fn_write_json(users_cvs_route_str, read_data_list)
+            print("CV created successfully")
+
+
+        elif user_input_int == 2:
+            read_data_list = fn_read_json(users_cvs_route_str)
+            cv_dict = fn_search_cv(read_data_list)
+
+
+            if cv_dict:
+                fn_edit_cv(cv_dict)
+                fn_write_json(users_cvs_route_str, read_data_list)
+                print("CV updated successfully")
+
+
+        elif user_input_int == 3:
+            read_data_list = fn_read_json(users_cvs_route_str)
+            cv_dict = fn_search_cv(read_data_list)
+
+
+            if cv_dict:
+                fn_format_cv(cv_dict)
+                input()
+
+
+        elif user_input_int == 4:
+            read_data_list = fn_read_json(users_cvs_route_str)
+
+
+            for cv_dict in read_data_list:
+                fn_format_cv(cv_dict)
+
+
+            input()
+
+
+        else:
+            print("Invalid option")
+
+
+
+
+main()
+
+
