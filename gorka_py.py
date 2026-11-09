@@ -179,3 +179,25 @@ def fn_format_cv(cv_dict):
 
 
     print("\n" + "=" * 40)
+
+def fn_search_cv(data_list):
+    if not data_list:
+        print("There are no CVs registered")
+        return None
+
+
+    for cv_dict in data_list:
+        print(f"ID: {cv_dict['id']} | Name: {cv_dict['name']} {cv_dict['last_names']}")
+
+
+    cv_id_int = int(input("\nType the CV ID: "))
+
+
+    for cv_dict in data_list:
+        if cv_dict["id"] == cv_id_int:
+            return cv_dict
+
+
+    print("CV not found")
+    return None
+
