@@ -92,20 +92,26 @@ def fn_edit_cv(data_dict): # funcion para ecitar un cv existente
 
 
 def fn_edit_cv(data_dict):
+
+# Lista de los campos del CV que se pueden modificar
+
     cv_inputs_list = [
         "name", "last_names", "birth_date", "tecnologies",
         "experience", "additional_information", "career",
         "languages", "phone_number", "email"
     ]
 
+    # Mostrar los campos disponibles para editar
 
     print(cv_inputs_list)
 
-
+    # Preguntar qué campos quiere modificar el usuario
     wants_to_answer_list = input("Fields to edit (comma separated): ").split(",")
 
-
+    # Recorrer cada uno de los campos seleccionados
     for field_str in wants_to_answer_list:
+        # Eliminar los espacios sobrantes
+
         field_str = field_str.strip()
 
 
@@ -140,14 +146,16 @@ def fn_edit_cv(data_dict):
 
 
 def fn_format_cv(cv_dict):
+    # Mostrar el título del currículum y sus bordes
+
     print("\n" + "=" * 40)
     print("             CURRICULUM VITAE")
     print("=" * 40)
 
-
+    # Mostrar el identificador del CV
     print(f"\nID: {cv_dict['id']}")
 
-
+    # Mostrar la información personal
     print("\nPERSONAL INFORMATION")
     print("-" * 40)
     print(f"Name: {cv_dict['name']} {cv_dict['last_names']}")
@@ -155,30 +163,30 @@ def fn_format_cv(cv_dict):
     print(f"Phone: {cv_dict['phone_number']}")
     print(f"Email: {cv_dict['email']}")
 
-
+    # Mostrar la información profesional
     print("\nPROFESSIONAL INFORMATION")
     print("-" * 40)
     print(f"Career: {cv_dict['career']}")
     print(f"Experience: {cv_dict['experience']} years")
 
-
+    # Mostrar todas las tecnologías
     print("\nTECHNOLOGIES")
     print("-" * 40)
     for technology_str in cv_dict["tecnologies"]:
         print(f"- {technology_str.strip()}")
 
-
+    # Mostrar todos los idiomas
     print("\nLANGUAGES")
     print("-" * 40)
     for language_str in cv_dict["languages"]:
         print(f"- {language_str.strip()}")
 
-
+    # Mostrar la información adicional
     print("\nADDITIONAL INFORMATION")
     print("-" * 40)
     print(cv_dict["additional_information"])
 
-
+    # Mostrar el borde final del currículum
     print("\n" + "=" * 40)
 
 def fn_search_cv(data_list):
