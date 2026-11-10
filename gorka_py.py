@@ -189,6 +189,7 @@ def fn_format_cv(cv_dict):
     # Mostrar el borde final del currículum
     print("\n" + "=" * 40)
 
+#Esta funcion lo que hace es buscar un CV apartir de un ID que escriba el usuario 
 def fn_search_cv(data_list):
     if not data_list:
         print("There are no CVs registered")
@@ -198,7 +199,7 @@ def fn_search_cv(data_list):
     for cv_dict in data_list:
         print(f"ID: {cv_dict['id']} | Name: {cv_dict['name']} {cv_dict['last_names']}")
 
-
+ #Esto pide al usuario que escriba un numero y lo guarda en la variable, 
     cv_id_int = int(input("\nType the CV ID: "))
 
 
@@ -209,7 +210,7 @@ def fn_search_cv(data_list):
 
     print("CV not found")
     return None
-
+#Esta funcion es el programa principal de gestor de CVs los cuales guarda en un archivo Muestra un menú que se repite una y otra vez, y según la opción que elija el usuario llama a otras funciones que hacen el trabajo concreto, como crear, buscar, editar o mostrar un CV. No contiene la lógica de cada tarea, solo la organiza.
 def main():
     print("welcome to your CV/json creator")
 
@@ -275,7 +276,7 @@ def main():
 
 
 
-
+# Es lo que pone en marcha el programa
 main()
 
 
