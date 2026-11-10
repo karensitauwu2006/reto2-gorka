@@ -4,11 +4,11 @@ import json
 
 users_cvs_route_str = "./users.json"
 
-def fn_read_json(route_str):
+def fn_read_json(route_str): # funcion para leer json
     data_list = []
 
-    if not os.path.exists(route_str):
-        return data_list
+    if not os.path.exists(route_str): # para asegurarse que existe el archivo, sin o existe devuelve una lista vacia
+        return data_list 
 
     with open(route_str, "r", encoding="utf-8") as f:
         data_list = json.load(f)
@@ -16,11 +16,11 @@ def fn_read_json(route_str):
     return data_list
 
 
-def fn_write_json(route_str, data_list):
+def fn_write_json(route_str, data_list): # funcion para leer 
     with open(route_str, "w", encoding="utf-8") as f:
-        json.dump(data_list, f, indent=4, ensure_ascii=False)
+        json.dump(data_list, f, indent=4, ensure_ascii=False) # esto escribe en el archivo mediante la fucnion dump de json
 
-def fn_create_cv():
+def fn_create_cv(): # funcion para crear cv, pregunta por todos los datos y hace un dict
     name_str = input("type your name: ")
     last_names_str = input("type your last name: ")
     birth_date_str = input("type your birth date (date format): ")
@@ -54,7 +54,7 @@ def fn_create_cv():
     return cv_info_dict
 
 
-def fn_edit_cv(data_dict):
+def fn_edit_cv(data_dict): # funcion para ecitar un cv existente 
     cv_inputs_list = [
         "name", "last_names", "birth_date", "tecnologies",
         "experience", "additional_information", "career",
