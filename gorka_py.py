@@ -90,52 +90,53 @@ def fn_edit_cv(data_dict): # funcion para ecitar un cv existente
 
     return data_dict
 
-    def fn_edit_cv(data_dict):
-        cv_inputs_list = [
-            "name", "last_names", "birth_date", "tecnologies",
-            "experience", "additional_information", "career",
-            "languages", "phone_number", "email"
-        ]
+
+def fn_edit_cv(data_dict):
+    cv_inputs_list = [
+        "name", "last_names", "birth_date", "tecnologies",
+        "experience", "additional_information", "career",
+        "languages", "phone_number", "email"
+    ]
 
 
-        print(cv_inputs_list)
+    print(cv_inputs_list)
 
 
-        wants_to_answer_list = input("Fields to edit (comma separated): ").split(",")
+    wants_to_answer_list = input("Fields to edit (comma separated): ").split(",")
 
 
-        for field_str in wants_to_answer_list:
-            field_str = field_str.strip()
+    for field_str in wants_to_answer_list:
+        field_str = field_str.strip()
 
 
-            if field_str in cv_inputs_list:
+        if field_str in cv_inputs_list:
 
 
-                if field_str == "experience":
-                    data_dict[field_str] = int(input(field_str + ": "))
+            if field_str == "experience":
+                data_dict[field_str] = int(input(field_str + ": "))
 
 
-                elif field_str == "tecnologies" or field_str == "languages":
-                    data_dict[field_str] = input(field_str + ": ").split(",")
+            elif field_str == "tecnologies" or field_str == "languages":
+                data_dict[field_str] = input(field_str + ": ").split(",")
 
 
-                elif field_str == "email":
+            elif field_str == "email":
+                email_str = input("email: ")
+
+
+                while "@" not in email_str or "." not in email_str.split("@")[-1] or " " in email_str:
+                    print("Please enter a valid email")
                     email_str = input("email: ")
 
 
-                    while "@" not in email_str or "." not in email_str.split("@")[-1] or " " in email_str:
-                        print("Please enter a valid email")
-                        email_str = input("email: ")
+                data_dict[field_str] = email_str
 
 
-                    data_dict[field_str] = email_str
+            else:
+                data_dict[field_str] = input(field_str + ": ")
 
 
-                else:
-                    data_dict[field_str] = input(field_str + ": ")
-
-
-        return data_dict
+    return data_dict
 
 
 def fn_format_cv(cv_dict):
